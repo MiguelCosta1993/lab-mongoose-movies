@@ -17,7 +17,8 @@ app.use(
   require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
     dest: path.join(__dirname, 'public'),
-    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    outputStyle:
+      process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
     force: process.env.NODE_ENV === 'development',
     sourceMap: true
   })
@@ -31,7 +32,9 @@ app.use(favicon(path.join(__dirname, 'public/images/favicon.ico')));
 
 // Mount base router on app, after setting up other middleware
 const baseRouter = require('./routes');
+const celebRouter = require('./routes/celebrities');
 
+app.use('/celebrities', celebRouter);
 app.use('/', baseRouter);
 
 // Catch 404 and render a not-found.hbs template
