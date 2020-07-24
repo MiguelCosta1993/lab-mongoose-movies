@@ -25,6 +25,23 @@ baseRouter.get('/show/:id', (request, response, next) => {
     });
 });
 
+baseRouter.get('/create', (request, response, next) => {
+  response.render('celebrities/create');
+});
+baseRouter.post('/create', (request, response, next) => {
+  Celebrity.create({
+    name: request.body.name,
+    occupation: request.body.occupation,
+    catchPhrase: request.body.catchPhrase
+  })
+    .then(celebrities => {
+      response.redirect('/');
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 baseRouter.post('/');
 
 module.exports = baseRouter;
