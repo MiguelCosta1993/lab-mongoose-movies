@@ -2,6 +2,7 @@ const express = require('express');
 const Router = express.Router;
 
 const Celebrity = require('./../models/celebrity');
+const { base } = require('./../models/celebrity');
 const baseRouter = new Router();
 
 baseRouter.get('/', (request, response, next) => {
@@ -41,6 +42,38 @@ baseRouter.post('/create', (request, response, next) => {
       next(error);
     });
 });
+
+//
+baseRouter.post('/:id/edit', (request, response, next) => {
+  const id = request.params.id;
+  const data = request.body;
+
+  Celebrity.findByIdAndUpdate(id, {
+    name: data.name,
+    occupation: data.occupation,
+    catchPhrase: data.catchPhrase
+  })
+    .then(() => {
+      response.redirect('/celebrities');
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+baseRouter.post('/:id/delete', (request, response, next) => {
+  const id = request.params.id;
+
+  Celebrity.findByIdAndDelete(id)
+
+    .then(() => {
+      response.redirect('/celebrities');
+    })
+    .then(error => {
+      next(error);
+    });
+});
+//
 
 baseRouter.post('/');
 
