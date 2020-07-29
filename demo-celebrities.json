@@ -1,17 +1,17 @@
 [
   {
-    "name": "Tom Cruise",
-    "occupation": "actor",
-    "catchPhrase": "You complete me"
+    "title": "Waterboy",
+    "genre": "Comedy",
+    "plot": "Adam Sandler features another idiotic movie"
   },
   {
-    "name": "Beyoncé",
-    "occupation": "singer",
-    "catchPhrase": "I sneezed on the beat and the beat got sicker"
+    "title": "The Shawshank Redemption",
+    "genre": "Drama",
+    "plot": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
   },
   {
-    "name": "Kim Kardashian",
-    "occupation": "unknown",
-    "catchPhrase": "There's a lot of baggage that comes with us, but it's like Louis Vuitton baggage. You always want it."
+    "title": "Parasite",
+    "genre": "Thriller",
+    "plot": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
   }
 ]
